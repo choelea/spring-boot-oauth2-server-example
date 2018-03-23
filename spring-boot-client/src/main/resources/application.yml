@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  session:
+    cookie:
+      name: UISESSION
+
+
+security:
+  basic:
+    enabled: true
+  oauth2:
+    client:
+      clientId: ClientId
+      clientSecret: secret
+      accessTokenUri: http://auth.server.com:8081/oauth/token
+      userAuthorizationUri: http://auth.server.com:8081/oauth/authorize
+    resource:
+      userInfoUri: http://auth.server.com:8081/rest/hello/principal
+
+
+spring:
+  thymeleaf:
+    cache: false
