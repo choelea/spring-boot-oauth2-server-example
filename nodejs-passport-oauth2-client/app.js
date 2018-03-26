@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const passport = require('./middlewares/passport');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
 app.use('/', index);
 app.use('/users', users);
 

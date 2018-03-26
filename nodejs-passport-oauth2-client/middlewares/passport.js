@@ -6,7 +6,7 @@
 
 const OAuth2Strategy = require('passport-oauth2').Strategy;
 const passport = require('passport');
-const utils = require('./utils');
+const utils = require('../utils');
 const request = require('request');
 
 const oauth2 = new OAuth2Strategy({
