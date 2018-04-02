@@ -1,12 +1,11 @@
 package com.joe.oauth2.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.joe.oauth2.model.Users;
-
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository<Users, Integer> {
-    Optional<Users> findByName(String username);
-    Optional<Users> findByEmail(String email);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.joe.oauth2.model.User;
+
+public interface UsersRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByEmail(String email);
 }

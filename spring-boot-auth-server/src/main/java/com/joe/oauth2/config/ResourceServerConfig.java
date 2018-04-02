@@ -42,4 +42,6 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
         auth.parentAuthenticationManager(authenticationManager)
                 .userDetailsService(customUserDetailsService);
     }
+    
+    
 }

@@ -7,10 +7,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class CustomUserDetails extends Users implements UserDetails {
+public class CustomUserDetails extends User implements UserDetails {
 
-    public CustomUserDetails(final Users users) {
-        super(users);
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8585270583821064917L;
+
+	public CustomUserDetails(final User user) {
+        super(user);
     }
 
     @Override
@@ -29,7 +34,7 @@ public class CustomUserDetails extends Users implements UserDetails {
 
     @Override
     public String getUsername() {
-        return super.getName();
+        return super.getUsername();
     }
 
     @Override
@@ -39,7 +44,7 @@ public class CustomUserDetails extends Users implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return super.getUserStatus().equals(UserStatus.ACTIVE);
     }
 
     @Override
@@ -49,6 +54,6 @@ public class CustomUserDetails extends Users implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return super.getUserStatus().equals(UserStatus.ACTIVE);
     }
 }
